@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+</head>
+<body>
+    <h1>My Gallery</h1>
+    <ul>
+    {% block content %}
+    {% for post in Posts %}
+        <li>
+            <h2>{{ post.title }}</h2>
+
+            {% for img_file in post.posted_imgs.all %}
+                <img src="{{ img_file.img.url }}" alt="{{ img_file.img.name }}" width="200px" height="200px">
+            {% endfor %}
+        </li>
+    {% endfor %}
+    {% endblock %}
+    </ul>
+</body>
+</html>
