@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/Gallery.css' %}">
 
     <title>Gallery</title>
@@ -34,11 +35,13 @@
                             <li><img src="{{ img_file.img.url }}" id="{{ img_file.img.url }}" class="image_on_list" alt="Imagem"></li>
                         {% endfor %}
                     </ul>
+
                     <div class="about">
                         <h2>{{ post.title }}</h2>
                         <p>{{ post.text }}</p>
-                        <span class="publish_date">{{ post.created_date }}</span>
                     </div>
+                    
+                    <a href="{% url 'view_album' pk=post.pk %}">Ver Album</a>
                     <span class="create_date">{{ post.created_date }}</span>
                 </div>
             </div>

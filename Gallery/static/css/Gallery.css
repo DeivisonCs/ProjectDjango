@@ -1,9 +1,3 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Lobster', Georgia, 'Times New Roman', Times, serif;
-}
 
 body {
     height: 100vh;
@@ -113,6 +107,24 @@ main div .content h2 {
 
 main div .content p {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+main div .content a {
+    position: absolute;
+    color: #fff;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background-color: #424242;
+    min-width: 20%;
+    bottom: 5%;
+    right: 5%;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px grey;
+}
+
+main div .content a:active{
+    box-shadow: 2px 2px 2px grey inset;
 }
 
 .img_on_bg {
@@ -238,6 +250,11 @@ main div .content ul::-webkit-scrollbar-thumb {
 
     #image_view #view_return_button {
         top: 5%;
+    }
+
+    main div .content a {
+        bottom: 2%;
+        right: 18%;
     }
 }
 
