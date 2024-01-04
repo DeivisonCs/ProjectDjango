@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Img_Files
+from django.contrib import messages
 from django.utils import timezone
+import os
 
 def gallery_posts(request):
     All_Posts = Post.objects.all()
@@ -33,3 +35,19 @@ def new_album(request):
     
     else:
         return render (request, 'new_album.html')
+
+
+def remove_album(request, pk):
+    album = get_object_or_404(Post, pk=pk)
+
+    for img in album.posted_imgs.all():
+        os.remove(img.img.path)
+
+
+    album.posted_imgs.all().delete()
+    album.delete()
+
+    messages.success(request, 'Album Removido')
+
+    return redirect('gallery_posts')
+    
