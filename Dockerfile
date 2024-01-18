@@ -13,6 +13,4 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Comando para iniciar a aplicação
-CMD ["python", "manage.py", "runserver"]
-
-EXPOSE 3000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
